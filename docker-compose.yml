@@ -1,0 +1,25 @@
+services:
+  app:
+    build: .
+    env_file:
+      - .env.docker
+    ports:
+      - "3000:3000"
+
+  oauth2-proxy:
+    image: quay.io/oauth2-proxy/oauth2-proxy:latest
+    ports:
+      - "4180:4180"
+    command:
+      - --provider=google
+      - --email-domain=lufa.com
+      - --upstream=http://app:3000
+      - --redirect-url=http://localhost:4180/oauth2/callback
+      - --cookie-secret=9ea3fa0ec89d56af46116c63dfca1e9e
+      - --client-id=323008668988-fh0o440kk2o52ri0vrfu769so1vsa5r0.apps.googleusercontent.com
+      - --client-secret=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
+      - --cookie-secure=false
+      - --pass-access-token=true
+      - --http-address=0.0.0.0:4180
+    depends_on:
+      - app

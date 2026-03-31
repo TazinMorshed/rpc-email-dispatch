@@ -10,7 +10,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Not authenticated' }, { status: 401 })
   }
 
-  const { to, subject, body } = await req.json()
+  const { subject, body } = await req.json()
+  const to = process.env.TEST_RECIPIENT
 
   if (!to || !subject || !body) {
     return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })

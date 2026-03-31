@@ -155,7 +155,7 @@ export default function EmailsPage() {
       const res = await fetch('/api/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ to: process.env.NEXT_PUBLIC_TEST_RECIPIENT, subject, body }),
+        body: JSON.stringify({ subject, body }),
       })
       if (!res.ok) {
         const data = await res.json()
@@ -390,7 +390,7 @@ export default function EmailsPage() {
         <svg className="w-4 h-4 text-green-400 dark:text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
         </svg>
-        Email successfully sent to {process.env.NEXT_PUBLIC_TEST_RECIPIENT}
+        Email successfully sent
       </div>
     </div>
   )
