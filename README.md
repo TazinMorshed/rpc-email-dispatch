@@ -24,6 +24,9 @@ GOOGLE_CLIENT_SECRET=
 TEST_RECIPIENT=
 ```
 
+
+Deployed : https://email-dispatch-production.up.railway.app
+
 ### Development
 
 ```bash
