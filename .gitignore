@@ -3,3 +3,9 @@ node_modules
 .env.docker
 .next/
 next-env.d.ts
+.DS_Store
+tsconfig.tsbuildinfo
+
+# Local working data — not app fixtures
+CustomA_RAgingDetail*.csv
+data/age.csv
